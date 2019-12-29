@@ -1,7 +1,7 @@
 # Use the buildsystem image made for android.
 # Has make and everything inbuilt
 
-FROM baalajimaestro/android-build:latest
+FROM baalajimaestro/android_build:latest
 
 WORKDIR /app
 
