@@ -11,7 +11,9 @@ cp ../openwrt_config .config
 make -j$(nproc) download world
 jobs
 kill %1
-i=$(find . | grep "sysupgrade")
-echo $i
-scp  -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -r $i baalaji20@storage.osdn.net:/storage/groups/b/ba/baalajimaestrobuilds/openwrt-snapshots/$i
+OUT="bin/targets/ipq40xx/generic/"
+FILE_NAME="openwrt-ipq40xx-generic-asus_rt-ac58u-squashfs-sysupgrade"
+FILE_NAME="${FILE_NAME}-$(date +%d%m%Y).bin"
+FILE_PATH="${OUT}${FILE_NAME}"
+scp  -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -r $FILE_PATH baalaji20@storage.osdn.net:/storage/groups/b/ba/baalajimaestrobuilds/openwrt-snapshots/$FILE_NAME
 echo "Pushed to OSDN!"
