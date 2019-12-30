@@ -13,7 +13,8 @@ jobs
 kill %1
 OUT="bin/targets/ipq40xx/generic/"
 FILE_NAME="openwrt-ipq40xx-generic-asus_rt-ac58u-squashfs-sysupgrade"
-FILE_NAME="${FILE_NAME}-$(date +%d%m%Y).bin"
+NEW_FILE_NAME="${FILE_NAME}-$(date +%d%m%Y).bin"
+mv "${OUT}${FILE_NAME}.bin" "${OUT}${NEW_FILE_NAME}"
 FILE_PATH="${OUT}${FILE_NAME}"
-scp  -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -r $FILE_PATH baalaji20@storage.osdn.net:/storage/groups/b/ba/baalajimaestrobuilds/openwrt-snapshots/$FILE_NAME
+scp  -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -r $FILE_PATH baalaji20@storage.osdn.net:/storage/groups/b/ba/baalajimaestrobuilds/openwrt-snapshots/$NEW_FILE_NAME
 echo "Pushed to OSDN!"
