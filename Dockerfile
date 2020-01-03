@@ -3,6 +3,7 @@
 
 FROM baalajimaestro/android_build:latest
 
+RUN apt update && apt install moreutils -y > /dev/null
 RUN sudo echo "ci ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 RUN useradd -m -d /home/ci ci
 RUN useradd -g ci wheel
@@ -11,9 +12,8 @@ RUN chown -R ci /app
 RUN chmod -R 777 /app
 USER ci
 
-
 WORKdIR /app
 COPY build.sh /app
 COPY openwrt_config /app
 
-CMD ["bash", "build.sh"]
+CMD bash build.sh | ts '[%Y-%m-%d %H:%M:%S]'
