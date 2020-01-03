@@ -3,7 +3,7 @@
 
 FROM baalajimaestro/android_build:latest
 
-RUN apt update && apt install moreutils -y > /dev/null
+RUN apt update && apt install moreutils -y
 RUN sudo echo "ci ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 RUN useradd -m -d /home/ci ci
 RUN useradd -g ci wheel
