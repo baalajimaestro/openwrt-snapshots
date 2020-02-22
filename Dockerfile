@@ -3,7 +3,7 @@
 
 FROM baalajimaestro/android_build:latest
 
-RUN apk add --no-cache --update texlive &> /dev/null | echo "Done!"
+RUN apk add --no-cache --update texlive
 
 RUN sudo echo "ci ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 RUN adduser --home /home/ci -S ci
