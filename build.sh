@@ -9,7 +9,8 @@ cd openwrt
 ./scripts/feeds install -a &>> /dev/null
 cp ../openwrt_config .config
 make defconfig
-make -j$(nproc) download world
+make -j$(nproc) download 
+make -j$(nproc) V=sc world
 jobs
 kill %1
 OUT="bin/targets/ipq40xx/generic/"
