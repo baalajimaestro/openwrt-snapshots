@@ -1,6 +1,3 @@
-# Use the buildsystem image made for android.
-# Has make and everything inbuilt
-
 FROM alpine:edge
 
 RUN apk add asciidoc \
@@ -44,7 +41,7 @@ RUN chown -R ci /app
 RUN chmod -R 777 /app
 USER ci
 
-WORKdIR /app
+WORKDIR /app
 COPY build.sh /app
 COPY openwrt_config /app
 
