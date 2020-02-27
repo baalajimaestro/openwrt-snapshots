@@ -32,6 +32,7 @@ RUN apk add asciidoc \
             zlib-dev \
             curl \
             moreutils \
+            openssh \
             sudo --no-cache
 
 RUN sudo echo "ci ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
