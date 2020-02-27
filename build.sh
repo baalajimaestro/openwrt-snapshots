@@ -10,7 +10,7 @@ cd openwrt
 cp ../openwrt_config .config
 make defconfig
 make -j$(nproc) download 
-make -j$(nproc) V=sc world
+make -j$(nproc) world
 jobs
 kill %1
 OUT="bin/targets/ipq40xx/generic/"
